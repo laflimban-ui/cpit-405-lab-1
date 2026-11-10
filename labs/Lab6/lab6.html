@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6</title>
+    <style>
+        body {
+    font-family: "Times New Roman", serif;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.votes button {
+    font-size: 48px;
+    padding: 4px 30px;
+    background: #e6e6eb;
+    border: 1px solid #888;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    padding: 12px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.actions button {
+    font-size: 20px;
+    padding: 16px 32px;
+    margin: 10px 8px;
+    background: #484848;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+</style>
+</head>
+<body>
+    <h1>Lab 6</h1>
+    
+    <h2>Like or Dislike</h2>
+
+    <div class="votes"></div>
+    <button id="likeButton">👍 <span id="likeCount">100</span></button>
+    <button id="dislikeButton">👎<span id="dislikeCount">20</span></button>    
+    </div>
+
+    <p id="message"></p>
+
+    <div id="commentsList"></div>
+
+  
+    <br>
+    <h3>Comments</h3>    
+    <input id="commentInput" placeholder="Write a comment...">
+    
+
+    <br><br>
+    <button id="submitButton">Submit</button>
+    <button id="resetButton">Clear</button>
+    <script src="lab6.js"></script>
+ 
+
+</body>
+</html>
