@@ -1,0 +1,77 @@
+Activity 2:
+Form Input Sanitizer
+(Pair Coding, 20 min)
+Problem statement. Every value from an HTML form arrives as a string. Your team is building the order form for the store from Activity 1. Write three small functions that inspect and safely convert user input before it reaches any calculation.
+Starter code:
+// TODO 1: Return a precise type name for any value.
+// Fix typeof's two quirks: null should give "null", NaN should give "NaN".
+function describeType(value) {
+  // your code here
+}
+ 
+// TODO 2: Convert a quantity typed by the user into a whole number >= 0.
+// Ignore surrounding spaces. Return null for empty, negative,
+// decimal, or non-numeric input.
+function parseQuantity(input) {
+  // your code here
+}
+ 
+// TODO 3: Build one order line using a template literal (no + concatenation).
+// Valid:   "Notebook x 3 = 36.30 SAR"
+// Invalid: 'Invalid quantity for Pen: "two"'
+function formatOrderLine(name, unitPrice, qtyInput) {
+  // your code here
+}
+ 
+// Tests: do not edit
+console.log(describeType(null), describeType(NaN), describeType("42"),
+            describeType(42), describeType(undefined), describeType([]));
+["3", " 7 ", "", "2.5", "-1", "abc", "0"].forEach(v =>
+  console.log(JSON.stringify(v), "->", parseQuantity(v)));
+console.log(formatOrderLine("Notebook", 12.1, "3"));
+console.log(formatOrderLine("Pen", 2.5, "two"));
+Expected test output:
+null NaN string number undefined object
+"3" -> 3
+" 7 " -> 7
+"" -> null
+"2.5" -> null
+"-1" -> null
+"abc" -> null
+"0" -> 0
+Notebook x 3 = 36.30 SAR
+Invalid quantity for Pen: "two"
+
+function parseQuantity(input) {
+  if (typeof input !== "string" && typeof input !== "number") return null;
+  
+  // إزالة المسافات الزائدة
+  let trimmed = String(input).trim();
+  if (trimmed === "") return null;
+  
+  let num = Number(trimmed);
+  
+  // التحقق من: هل هو ليس رقماً؟ هل هو سالب؟ هل هو رقم عشري (غير صحيح)؟
+  if (Number.isNaN(num) || num < 0 || !Number.isInteger(num)) {
+    return null;
+  }
+  
+  return num;
+}
+
+function formatOrderLine(name, unitPrice, qtyInput) {
+  let qty = parseQuantity(qtyInput);
+  
+  // إذا كانت الكمية غير صالحة
+  if (qty === null) {
+    return `Invalid quantity for ${name}: "${qtyInput}"`;
+  }
+  
+  // إذا كانت صالحة، نحسب السعر الإجمالي وننسق النص
+  let total = (unitPrice * qty).toFixed(2);
+  return `${name} x ${qty} = ${total} SAR`;
+}
+
+
+
+"اراجع اللاب اكتيفيتي في لاب الجافا سكريبت تبغانا نتعلم طريقه ثايه بدل استخدام عمليه ال+ 

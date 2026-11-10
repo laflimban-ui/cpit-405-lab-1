@@ -1,0 +1,21 @@
+﻿
+/*team members: Lana Flimban, Bayan Alharbi*/
+﻿function cartSummary(prices, qtyInputs) {
+  var total = 0;
+  var itemCount = 0;
+  for (var i = 0; i < prices.length; i++) {
+    if (qtyInputs[i] === "0") continue;
+    total = total + prices[i] * qtyInputs[i];
+    itemCount = itemCount + Number(qtyInputs[i]);
+  }
+  console.log("Items in cart: " + itemCount);
+  /*console.log("Loop ran until i = " + i);*/
+  console.log("Subtotal: " + total.toFixed(2) + " SAR");
+  console.log("Total with shipping: " + (total + 15).toFixed(2) + " SAR");
+  
+  const VAT_RATE = 0.15;
+  /*VAT_RATE = 0.05;*/
+  console.log("VAT: " + (total * VAT_RATE).toFixed(2) + " SAR");
+}
+ 
+cartSummary([12.1, 7.2, 30], ["1", "2", "0"]);

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lab 7</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 24px auto; padding: 0 16px; }
+    button { padding: 8px 14px; margin: 4px 2px; cursor: pointer; }
+    pre { white-space: pre-wrap; word-break: break-all; background: #f4f4f6; padding: 10px; }
+  </style>
+</head>
+<body>
+   
+  <br>
+  <input id="inputBox" placeholder="Enter a search term" />
+  <br>
+  <button onclick="searchUsingXHR()">XHR</button>
+  <button onclick="searchUsingFetch()">Fetch with promises</button>
+  <button onclick="searchUsingFetchAwaitAsync()">Fetch with async and await</button>
+  <p id="sampleOutput"></p>
+  <div id="gallery"></div>
+  <script src="lab7.js"></script>
+</body>
+</html>
